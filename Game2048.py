@@ -2,8 +2,8 @@ import main
 
 
 class Game2048:
-    def __init__(self, nums):
-        self.nums = nums
+    def __init__(self, board):
+        self.board = board
 
     def print(self):
         for i in self.nums:
@@ -12,7 +12,7 @@ class Game2048:
     def merge(self, nums):
         # prev is used to compare, while next_ is used to traverse the list
         prev = None
-        store = []
+        result_list = []
         for next_ in nums:
             # print("prev: " + str(prev) + "\n")
             # print("Next: " + str(next_) + " ")
@@ -24,16 +24,16 @@ class Game2048:
             elif prev == next_:
                 # skip the comparison of the previous element and the next_ element after merging that pair
                 # by resetting prev to None
-                store.append(prev + next_)
+                result_list.append(prev + next_)
                 prev = None
             else:
-                store.append(prev)
+                result_list.append(prev)
                 prev = next_
         if prev is not None:
-            store.append(prev)
+            result_list.append(prev)
         # fill in 0s in the remaining positions of the result list
-        store.extend([0] * (len(nums) - len(store)))
-        return store
+        result_list.extend([0] * (len(nums) - len(result_list)))
+        return result_list
 
 
 if __name__ == '__main__':
