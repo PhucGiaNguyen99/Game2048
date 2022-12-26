@@ -1,3 +1,7 @@
+
+"""
+Merge function for 2048 game.
+"""
 def merge(nums):
     """
     Function that merges a single row or column in 2048.
@@ -44,7 +48,7 @@ def merge_test(test):
         return 'FAILED'
 
 
-class MergeTestSuite:
+class Game2048:
     def __init__(self, input_tests):
         self.tests = input_tests
 
@@ -72,5 +76,5 @@ tests = [
     ([8, 16, 16, 8], [8, 32, 8, 0]),
 ]
 
-merge_test_suite = MergeTestSuite(tests)
+merge_test_suite = Game2048(tests)
 merge_test_suite.run_tests()
